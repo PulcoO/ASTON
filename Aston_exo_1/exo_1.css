@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    height: 100vh;
+    widows: 100%;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    height: auto;
+    width: 400px;
+
+    background-color: #ffffff;
+    
+    border-radius: 1rem;
+
+    -webkit-box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 0.5);
+
+    overflow: hidden;
+}
+
+.card_image {
+    
+    padding: 3%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #008793;  
+    position:relative;
+    
+}
+.card_image h3{
+    position: absolute;
+    opacity:0;
+    background: transparent;   
+    text-align: center;
+    transform: scale(10);
+    transition: all 0.3s ease-in-out 0.1s;
+}
+
+.card_image:hover::before{
+    content: '';
+    background-color: rgba(0,0,0,0.9);
+    height: 200px;
+    width: 200px;
+    border-radius:50%;
+    position: absolute;
+}
+
+.card_image:hover h3{
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.1s;
+    color: #00bf72;
+}
+
+.card_image img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+hr {
+    margin: 0;
+    border: none;
+    height: 3px;
+    background-color:  black;
+}
+
+.background{
+    margin: 0;
+    padding: 0;
+    background-image: url("marin.jpg");
+    background-repeat: no-repeat;
+}
+.card_text {
+    
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+h1{
+    text-transform: uppercase;
+    margin-top: 0;
+    padding-top: 25px;
+}
+.etoile_rating{
+    margin-left: 5%;
+}
+.etoile_rating > a:hover::before{
+    content:'&#128025;';
+    position: absolute;
+    top:0;
+    left:0;
+    color:gold;
+}
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+   top:0;
+   left:0;
+   color:gold;
+}
+.etoile_selector a{
+    transform: scale(0);
+}
+.etoile_selector a:hover{
+    transform: scale(5);
+}
+footer{
+    display: flex;
+    justify-content: flex-end;
+    
+    
+}
+
+footer button {
+
+    display: inline-block;
+
+    margin: 2%;
+    padding: 2% 2% 1% 2%;
+
+    border: transparent;
+    border-radius: 50%;
+
+    background-color: #008793;
+
+    text-transform: uppercase;
+    font-size: 0.7rem;
+
+    transition-timing-function: cubic-bezier(.13,.8,.8,.25);
+    transition-duration: 0.9;
+    transition-delay: 0.1;
+    cursor: pointer;
+
+    font:inherit;
+    outline: none;
+
+    box-shadow: 0px 6px 0px 0px rgb(4, 106, 116);
+}
+footer button img{
+    height: 45px;
+}
+
+footer button:hover {
+    background-color: rgb(0, 77, 122);
+    color: rgb(221, 237, 60);
+    box-shadow: 0px 4px 0px 0px rgb(0, 77, 122);
+}
+
+footer button:active{
+    box-shadow: 0px 2px 0px 0px rgb(0, 77, 122);
+    transform: translateY(4px);
+
+}
