@@ -75,12 +75,17 @@ hr {
 }
 
 .background{
+    overflow: hidden;
     margin: 0;
     padding: 0;
     background-image: url("marin.jpg");
     background-repeat: no-repeat;
 
+   
+
 }
+
+
 .card_text {
     padding-left: 5%;
     padding-right: 5%;
