@@ -96,7 +96,8 @@ h1{
     flex-direction: row-reverse;
     justify-content: flex-end;
 }
-.etoile_rating >span{
+
+.etoile_rating > span{
     display: inline-block;
     margin: 1%;
 }
@@ -107,6 +108,7 @@ h1{
 }
 .etoile_rating span:hover ~ span{
     transform: scale(1.5);
+    
 }
 footer{
     display: flex;
