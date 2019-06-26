@@ -117,4 +117,24 @@
 
 </body>
 
+<script src="javascript">
+
+let burger = document.getElementById("burger");
+
+burger.addEventListener('click',onBurgerClick);
+
+    function onBurgerClick(){
+        let nav = document.querySelector(".nav-container");
+        
+        if (nav.style.display = "block"){
+            nav.style.display = "none";
+        }else if (nav.style.display = "none"){
+            nav.style.display = "block";
+        }
+        navbar.classList.toggle('toggle')
+        
+    }
+</script>
+
+
 </html>
