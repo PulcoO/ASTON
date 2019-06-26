@@ -111,7 +111,7 @@ header{
     display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     
     .nav-wrapper {
         display: flex;
@@ -122,7 +122,7 @@ header{
         
         top:0;
         margin: auto;
-        width: 100%;
+        width: 90%;
         height: 15%;
         padding: 15px 15px;
         z-index: 9999;
@@ -233,6 +233,12 @@ header{
 		}
 	}
 }
+@media screen and (max-width: 450px){
+    body > header > div > nav > div > ul{
+        padding: 0;
+    }
+}
+/* FIN DU MEDIA KERIES SUR LA NAV BAR */
 
  /* Border Link Hover */
 
@@ -291,10 +297,12 @@ overflow: hidden;
 .article:focus {
     outline: none;
     transform: scale(1.05);
-    animation: boxshadow infinite 1s normal both; 
+    filter : grayscale(0%);
+    animation: boxshadow infinite 8s normal both; 
 }
+/* TOUJOURS PENSER QUE FOCUS-WITHIN FONCTIONNE SUR L'ELEMNT PARENT */
 
-.article:focus-within>.article:not(:focus){
+.content_article:focus-within>.article:not(:focus){
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
     opacity: 0.9;
@@ -392,10 +400,10 @@ overflow: hidden;
 }
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 768px){
     
     .content_article {
-
+        width: 90%;
         padding-top: 300px;
         position: relative;
         display: flex;
@@ -411,7 +419,7 @@ overflow: hidden;
         background-color: rgba(0, 0, 0, 0.8);
         border-radius:1rem;
         height: 250px;
-        width: 250px;
+        width: 200px;
     }
     .article_img{
         border-radius: 1rem;
@@ -421,22 +429,30 @@ overflow: hidden;
         width: 100%;
     }
     .article_img img{
-        height: 150px;
         width: 100%;
         height: auto;
     }
     .article_text{
+        flex-direction: column;
         padding: 1% 1% 1% 1%;
-        height: 25%;
+        height: 50%;
+        width: 100%;
 
     }
-    .article_text h2{
-        font-size: .8rem;
-    }
-    .article_text p{
-        font-size: .5rem;
+    .article_text .text_titre h2{
+        font-size: .7rem;
     }
 
+    .article_text .text_titre p{
+        display: none;
+
+    }
+    .article_text .text_prix .prix {
+        margin:0;
+    }
+    .article_text .text_prix {
+        align-items: flex-end;
+    }
 }
 
 @media screen and (max-width: 450px){
@@ -470,7 +486,3 @@ overflow: hidden;
         font-size: .7rem;
     }
 }
-
-
-
-
