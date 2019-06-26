@@ -1,4 +1,6 @@
-*{
+*,
+::after,
+::before{
     box-sizing: border-box;
 }
 body{ 
@@ -11,6 +13,8 @@ body{
     margin: 0;
     padding: 0;
     background: url(fond_ecran.jpg);
+    background-size: cover; 
+    /* LE COVER POUR LE 4k !!!!!! */
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -51,7 +55,7 @@ header{
     
     top:0;
     margin: auto;
-    width: 100%;
+    width: 70%;
     height: 15%;
     padding: 15px 15px;
     z-index: 9999;
@@ -228,11 +232,7 @@ header{
 		}
 	}
 }
-@media screen and (max-width: 450px) {
-    .nav-container .nav-tabs {
-        align-items: flex-start;
-    }
-}
+
  /* Border Link Hover */
 
 .navbar .menu a.nav-link:hover{
@@ -257,18 +257,14 @@ a.nav-tab:hover::after, a.nav-link:active::after {
 width: 100%;
 }
 
-br{
-    display: block;
-    position: relative;
-}
-
 .content_article {
     
 padding-top: 150px;
 position: relative;
 display: flex;
 flex-direction: column;
-align-items: center;
+width: 70%;
+margin: auto;
 }
 
 .article{
@@ -277,55 +273,133 @@ display: flex;
 flex-flow: row nowrap;
 align-content: center;
 align-items: center;
-margin: 1% 5% 1% 5%;
+margin: 1% 0% 1% 0%;
 background-color: rgba(0, 0, 0, 0.8);
 height: 150px;
 padding: 5px;
+cursor: pointer;
+transition: all .3s ease;
+filter : grayscale(50%);
+overflow: hidden;
 
 }
+.article:hover{
+    filter : grayscale(0%);
+}
+/* LE FOCUS NE FONCTIONNE PAS si aucun attribut tabindex =" " en html*/
+.article:focus {
+    outline: none;
+    transform: scale(1.05);
+    animation: boxshadow infinite 1s normal both; 
+}
+
+.article:focus-within>.article:not(:focus){
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    opacity: 0.9;
+}
+
+
+@keyframes boxshadow {
+    0%{
+        box-shadow: 0px 0px 9px 7px #2ecc71,
+                    0px 0px 9px 7px #2ecc71,  
+                    0px 0px 9px 7px #c0392b,  
+                    0px 0px 9px 7px #3498db,  
+                    0px 0px 9px 7px #c0392b,  
+                    0px 0px 9px 7px #3498db, 
+                    0px 0px 9px 7px #2ecc71,        
+                    0px 0px 9px 7px #c0392b,       
+                    0px 0px 9px 7px #3498db;     
+    }
+    25% {
+        box-shadow: 0px 0px 9px 4px #c0392b,
+                    0px 0px 9px 4px #c0392b,  
+                    0px 0px 9px 4px #3498db,
+                    0px 0px 9px 4px #c0392b,
+                    0px 0px 9px 4px #3498db,
+                    0px 0px 9px 4px #2ecc71,
+                    0px 0px 9px 4px #c0392b,    
+                    0px 0px 9px 4px #3498db,       
+                    0px 0px 9px 4px #2ecc71;
+    }
+    50% {
+        box-shadow: 0px 0px 9px 6px #3498db,
+                    0px 0px 9px 6px #3498db,  
+                    0px 0px 9px 6px #c0392b,
+                    0px 0px 9px 6px #3498db,
+                    0px 0px 9px 6px #2ecc71,
+                    0px 0px 9px 6px #c0392b,
+                    0px 0px 9px 6px #3498db,    
+                    0px 0px 9px 6px #2ecc71,       
+                    0px 0px 9px 6px #c0392b;
+    }
+    100% {
+        box-shadow: 0px 0px 9px 9px #c0392b,
+                    0px 0px 9px 9px #c0392b,  
+                    0px 0px 9px 9px #3498db,
+                    0px 0px 9px 9px #2ecc71,
+                    0px 0px 9px 9px #c0392b,
+                    0px 0px 9px 9px #3498db,
+                    0px 0px 9px 9px #2ecc71,    
+                    0px 0px 9px 9px #c0392b,       
+                    0px 0px 9px 9px #3498db;
+    }
+}
 .article_img{
-padding: 1px 1px 1px 1px;
-max-width: 20%;
-max-height: 150px;
+    display: flex;
+    align-content: center;
+    overflow: hidden;
+    max-width: 30%;
+    max-height: 150px;
 
 }
 .article_img img{
-    
     width: 100%;
-    max-height: 150px;;
+    max-height: 130px;
+    object-fit: cover;
 }
 .article_text{
-
-padding: 1% 0% 0% 2%;
-height: 100%;
-
-}
-.article_text h2{
-    margin-top:0px;
-    top: 0;
-}
-
-.article::before {
-    content: '';
-    position: absolute;
-    filter: grayscale(0.5) blur(10px);
-    top: 0;
-    right: 0;
-    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 0% 0% 1%;
     width: 100%;
 
+}
+.article_text .text_titre{
+    max-width: 80%;
+}
+.article_text .text_prix{
+    max-width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    align-content: flex-end;
+    align-items: flex-end;
+}
+.article_text .text_titre h2{
+    margin-top:0px;
+    top: 0;
+    text-transform: uppercase;
+}
+
+.article_text .text_prix .prix{
+    font-size: 1.5em;
+    color: #2ecc71;
+    text-align: bottom;
+    
 }
 
 
 @media screen and (max-width: 800px){
     
-.content_article {
-    
-    padding-top: 300px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .content_article {
+
+        padding-top: 300px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .article{
@@ -339,20 +413,20 @@ height: 100%;
         width: 250px;
     }
     .article_img{
-    border-radius: 1rem;
-    overflow: hidden;
-    height: 150px;
-    max-width: 100%;
-    width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+        height: 150px;
+        max-width: 100%;
+        width: 100%;
     }
     .article_img img{
-    height: 150px;
-    width: 100%;
-    height: auto;
+        height: 150px;
+        width: 100%;
+        height: auto;
     }
     .article_text{
-    padding: 1% 1% 1% 1%;
-    height: 25%;
+        padding: 1% 1% 1% 1%;
+        height: 25%;
 
     }
     .article_text h2{
@@ -364,31 +438,38 @@ height: 100%;
 
 }
 
-@media screen and (max-width: 400px){
-.content_article {
-    
-    padding-top: 250px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media screen and (max-width: 450px){
+    .content_article {
+        
+        padding-top: 250px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .article{
         flex-direction: column;
-        margin: 1% 0 1% 0;
+        margin: 3% 0 3% 0;
         background-color: rgba(0, 0, 0, 0.8);
         padding: 1%;
         border-radius:1px;
     }
+
     .article_img img{
         width: 100%;
         height: auto;
     }
+
     .article_text h2{
-    font-size: .9rem;
+        font-size: .9rem;
+
+    }
+    .article_text p{
+        font-size: .7rem;
+    }
 }
-.article_text p{
-    font-size: .7rem;
-}
-}
+
+
+
+
