@@ -87,9 +87,6 @@ let elementInput = document.querySelector('input');
 let elementHelpInput = document.querySelector('.help_input');
 let elementListInput = document.querySelector('.list_input');
 
-
-
-
 elementInput.addEventListener('keyup', miroir, false);
 
 function miroir (event) {
@@ -103,7 +100,7 @@ function miroir (event) {
 
 function creationElementsli (liTextContent){
     var newLi = document.createElement("li");   // Create a <button> element
-    var textLi = document.createTextNode(liTextContent); // Insert text
+    var textLi = document.createTextNode(liTextContent); // enregistrement du text
     newLi.appendChild(textLi); //insert text
     elementListInput.appendChild(newLi);
 }
