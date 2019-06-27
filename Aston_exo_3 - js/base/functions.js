@@ -85,12 +85,25 @@ function myScrollFunction(element){
 
 let elementInput = document.querySelector('input');
 let elementHelpInput = document.querySelector('.help_input');
+let elementListInput = document.querySelector('.list_input');
 
 
 
 
-elementInput.addEventListener('input', miroir, false);
+elementInput.addEventListener('keyup', miroir, false);
 
-function miroir () {
+function miroir (event) {
+    console.log(event.keyCode);
     elementHelpInput.textContent = elementInput.value;
+    if (event.keyCode === 13){
+        let liTextContent = elementInput.value
+        creationElementsli (liTextContent);
+    }
+}
+
+function creationElementsli (liTextContent){
+    var newLi = document.createElement("li");   // Create a <button> element
+    var textLi = document.createTextNode(liTextContent); // Insert text
+    newLi.appendChild(textLi); //insert text
+    elementListInput.appendChild(newLi);
 }
