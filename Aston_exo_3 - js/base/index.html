@@ -1,154 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <style>
-        #h1{color: red};
-        .slide{ animation-name: slideleft;
-                -webkit-animation-name: slideleft;
-                animation-duration: 1s;
-                -webkit-animation-duration: 1s;
-                visibility: visible;};
-@keyframes slideleft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(70%);
-  } 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-  }
-}
 
-@-webkit-keyframes slideleft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(70%);
-  } 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0%);
-  }
-}
-
-    </style>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Javascript Bases</title>
+  <style>
+
+    body{
+      background-color: #ffffff;
+    }
+    #h1 {
+      color:#444;
+      text-align: center;
+    }
+
+    .createdLi {
+      list-style-type: none;
+      color: yellowgreen;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 20%;
+    }
+    .fas{
+      color: black;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript Bases</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
 </head>
+
 <body>
-    
-    <h1 id="h1" contenteditable="true">Hello</h1>
 
-    <input type="text" placeholder="touch me">
-    <p class="help_input"></p>
+  <h1 id="h1" contenteditable="true">Hello</h1>
+  
+  <h2>Venez construire des div ^^ :</h2>
 
-    <ul class="list_input"> Voici ce que tu as noté gros ! 
-        
-    </ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<p style>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum molestias deserunt, perspiciatis error itaque ipsa nisi, ea nam est laborum, autem doloremque veritatis dicta dolorum eos illo molestiae doloribus minima.</p>
+  <input type="text" placeholder="touch me">
+  <p class="help_input"></p>
 
-    <h2>End</h2>
-    <script src="functions.js"></script>
+  <ul class="list_input"> Voici ce que tu as noté gros !
+    <li class="createdLi">test<a href="#"><i class="fas fa-trash"></i></a></li>
+  </ul>
+
+  
+  <script src="functions.js"></script>
 </body>
+
 </html>
