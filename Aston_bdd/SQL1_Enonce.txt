@@ -1,0 +1,133 @@
+
+Ecrire les requêtes suivantes en SQL
+
+A0a°) Donner la liste des voitures (id et numero de série) et le modele des 
+voitures vendues après le 15 Janvier 2014 en utilisant les jointures ANSI
+
+SELECT Voiture.id,Voiture.numserie,Modele.denomination
+FROM Voiture INNER JOIN Vente INNER JOIN Modele
+ON Voiture.id = Vente.voiture_id
+          AND Voiture.modele_id=Modele.id
+WHERE 
+           Vente.date > '2014-01-15'
+		   
+A0b°) Donner le modele des voitures vendues après le 15 Janvier 2014 . Trier 
+par ordre croissant de la denomination du modèle – utilisation de Distinct et 
+Order
+		   
+SELECT DISTINCT Modele.denomination
+FROM Voiture INNER JOIN Vente INNER JOIN Modele
+ON Voiture.id = Vente.voiture_id
+          AND Voiture.modele_id=Modele.id
+WHERE 
+           Vente.date > '2014-01-15' 
+ORDER BY Modele.denomination asc	
+
+A1°) Sélectionner la liste des modèles (id, denomination, marque) qui n’ont 
+jamais été vendus	
+
+Select  modele.id, modele.denomination, modele.marque,modele.energie
+from  modele 
+where id NOT IN (select distinct modele_id from voiture JOIN Vente ON voiture.id=vente.voiture_id)  
+
+Meilleure solution
+
+SELECT * FROM  modele where NOT EXISTS
+(Select * from Voiture JOIN Vente ON modele.id=voiture.modele_id
+and voiture.id=vente.voiture_id)
+		   
+Modifier la requete pour qu’elle retourne les modèles non vendus entre le 
+01/03/2014 et le 31/03/2014		
+
+Select  modele.id, modele.denomination, modele.marque,modele.energie
+from  modele 
+where id NOT IN 
+(select distinct modele_id from voiture JOIN Vente ON voiture.id=vente.voiture_id 
+WHERE date BETWEEN '2014-03-01' AND '2014-03-31') ;
+
+
+A2°) Donner la liste des modèles qui ont été vendus plus de 10 fois au cours de 
+l’année 2014   
+
+Solution optimale
+Select  modele.id, modele.denomination, modele.marque,modelevendu.nbre
+from  modele JOIN 
+(select modele_id,count(*) as nbre from voiture JOIN vente 
+ON voiture.id=vente.voiture_id  
+where Year(vente.date)=2014
+group by modele_id Having count(*)>10) as modelevendu  
+ON modele.id= modelevendu.modele_id
+
+Solution moins élégante
+Select  modele.id, modele.denomination, modele.marque,modelevendu.nbre
+from  modele JOIN 
+(select modele_id,count(*) as nbre from voiture JOIN vente 
+ON voiture.id=vente.voiture_id 
+where Year(vente.date)=2014
+group by modele_id) as modelevendu  
+ON modele.id= modelevendu.modele_id
+where modelevendu.nbre > 10
+
+
+B°) Donner le nom et prénom du Vendeur ayant réalisé le plus gros bénéfice sur 
+une vente (Bénefice = prixvente-cout) 
+
+SELECT nomv, prenomv
+FROM Vente,Voiture,Vendeur
+WHERE Voiture.id = Vente.voiture_id
+and Vente.vendeur_id = Vendeur.id
+AND prixvente-cout >= ALL (SELECT prixvente-cout
+FROM Voiture,Vente
+WHERE Voiture.id = Vente.voiture_id)
+
+SELECT nomv, prenomv
+FROM Vente JOIN Voiture JOIN Vendeur
+ON ( Voiture.id = Vente.voiture_id
+and Vente.vendeur_id = Vendeur.id )
+WHERE prixvente-cout >=  (SELECT max(prixvente-cout)
+FROM Voiture JOIN Vente
+ON Voiture.id = Vente.voiture_id)
+
+SELECT max(prixvente-cout) as benef , vendeur_id ,nomv, prenomv
+FROM Voiture JOIN Vente JOIN Vendeur
+ON (Voiture.id = Vente.voiture_id  AND  Vente.vendeur_id = Vendeur.id)
+group by Vente.vendeur_id ,nomv, prenomv
+order by benef desc
+LIMIT 1;
+
+G°) Pour chaque client, Donner l’id, le nom, le prénom, la vente totale , le cout 
+total, le bénéfice et trier le bénéfice par ordre Décroissant
+
+SELECT Client.id,nomc,prenomc, sum(Prixvente) V,sum(cout)C,sum(Prixvente)-sum(cout)
+ as benef
+FROM Vente JOIN Voiture JOIN Client
+ON ( Voiture.id = Vente.voiture_id
+AND Vente.client_id=Client.id) 
+
+GROUP BY Client.id,nomc,prenomc
+order by benef desc;
+
+
+sur les peugeot uniquement
+SELECT Client.id,nomc,prenomc, sum(Prixvente) V,sum(cout)C,sum(Prixvente)-sum(cout)
+ as benef
+FROM Vente JOIN Voiture JOIN Client JOIN modele
+ON ( Voiture.id = Vente.voiture_id
+AND Vente.client_id=Client.id AND Voiture.modele_id = modele.id ) 
+Where modele.marque like 'PEUGEOT%'
+GROUP BY Client.id,nomc,prenomc
+order by benef desc;
+
+K°) Update sur plusieurs tables 
+Mettre à jour les Ventes pour que le montant de chaque vente corresponde à 
+92% du prix catalogue pour les vehicules de marque renault sur le mois de 
+Février 2014
+
+Update vente JOIN voiture JOIN modele
+ON (vente.voiture_id=voiture.id
+and voiture.modele_id=modele.id)
+set vente.prixvente=voiture.prixcatalogue*0.92
+where modele.marque='Renault'
+and (Year(vente.date)=2014 and Month(vente.date)=2);
+
+
