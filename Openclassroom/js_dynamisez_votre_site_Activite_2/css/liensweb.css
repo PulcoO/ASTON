@@ -16,10 +16,19 @@ span {
     margin-bottom: 10px;
 }
 
-form{
+form {
     display: none;
 }
 
-button{
+button {
     margin-bottom: 15px;
+}
+
+.done {
+    display: none;
+    padding: 5%;
+    width: 100%;
+    text-align: center;
+    background-color: #444;
+    color: #eee;
 }
