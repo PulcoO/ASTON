@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <div class="row my-4">
-                <div class="col-3">
-                    <label for="nom">Tache</label>
-                    <input type="text" id="nom">
-                </div>
-                <div class="col-4">
-                    <label for="date">Date</label>
-                    <input type="date" id="date">
-                </div>
             <div class="col-3">
-                <button id="envoi" >Add</button>
+                <label for="nom">Tache</label>
+                <input type="text" id="nom">
+            </div>
+            <div class="col-4">
+                <label for="date">Date</label>
+                <input type="date" id="date">
+            </div>
+            <div class="col-3">
+                <button id="envoi">Add</button>
             </div>
         </div>
         <div class="row bg-dark text-light">
@@ -33,6 +35,14 @@
     <div id="cible" class="container">
 
     </div>
+
+    <div class="container" id="archive">
+        <div class="row bg-dark text-light">
+            <div class="col-13">Archivée</div>
+        </div>
+    </div>
+
     <script src="index.js"></script>
 </body>
+
 </html>
