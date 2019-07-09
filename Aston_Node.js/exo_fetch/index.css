@@ -1,0 +1,38 @@
+*,
+::after,
+::before{
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color:white;
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(circle, #051937, #002139, #002836, #002d32, #15322e);
+}
+.films{
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(255,255,15,1);
+}
+
+
+
+h1{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#section_films{
+    margin-right: 30%;
+    margin-left: 30%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 35px;
+    grid-auto-rows: minmax(100px, auto);
+}

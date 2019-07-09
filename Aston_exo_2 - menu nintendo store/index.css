@@ -4,17 +4,17 @@
     box-sizing: border-box;
 }
 
-body{ 
+body{
     background-color: #fff;
     font-family: 'Kanit', sans-serif;
     letter-spacing: 3px;
     font-size: 14px;
     line-height: 1.42857;
-    color:white;  
+    color:white;
     margin: 0;
     padding: 0;
     background: url(fond_ecran.jpg);
-    background-size: cover; 
+    background-size: cover;
     /* LE COVER POUR LE 4k !!!!!! */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -28,7 +28,7 @@ a{
     position: relative;
     width: 100%;
     height: auto;
-    
+
 }
 
 header{
@@ -38,9 +38,9 @@ header{
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 1);
-    
+
     z-index: 9999;
-    
+
 }
 
 
@@ -53,7 +53,7 @@ header{
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    
+
     top:0;
     margin: auto;
     width: 70%;
@@ -83,11 +83,11 @@ header{
     align-content: center;
     align-items: center;
     align-content: space-between;
-    
-    text-transform: uppercase;
-    color: white; 
 
-    
+    text-transform: uppercase;
+    color: white;
+
+
 }
 
 .nav-tabs a{
@@ -96,13 +96,13 @@ header{
 
 .nav-tabs li{
     padding: 0 15px 0 15px;
-    
+
 }
 
 .nav-tabs li:hover{
     transform: scale(1.1);
 }
-    
+
 .nav-tab,
 .menu-btn {
     cursor: pointer;
@@ -112,14 +112,14 @@ header{
 }
 
 @media screen and (max-width: 768px) {
-    
+
     .nav-wrapper {
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
-        
+
         top:0;
         margin: auto;
         width: 90%;
@@ -128,12 +128,12 @@ header{
         z-index: 9999;
     }
 
-    .nav-wrapper {  
+    .nav-wrapper {
         height: 7%;
     }
-    
+
     .nav-container {
-        
+
 		position: relative;
 		display: none;
 		z-index: 0;
@@ -169,7 +169,7 @@ header{
 		padding: 20px 25px;
 		margin: 0;
 		border-right: unset;
-		
+
 	}
 	.menu-btn {
         /* position: relative; */
@@ -177,7 +177,7 @@ header{
 		cursor: pointer;
 		z-index: 20000;
 		padding: 15px;
-		
+
     }
 	.menu-btn .menu {
 		display: block;
@@ -265,7 +265,7 @@ width: 100%;
 }
 
 .content_article {
-    
+
 padding-top: 150px;
 position: relative;
 display: flex;
@@ -298,7 +298,7 @@ overflow: hidden;
     outline: none;
     transform: scale(1.05);
     filter : grayscale(0%);
-    animation: boxshadow infinite 8s normal both; 
+    animation: boxshadow infinite 8s normal both;
 }
 /* TOUJOURS PENSER QUE FOCUS-WITHIN FONCTIONNE SUR L'ELEMNT PARENT */
 
@@ -312,46 +312,46 @@ overflow: hidden;
 @keyframes boxshadow {
     0%{
         box-shadow: 0px 0px 9px 7px #2ecc71,
-                    0px 0px 9px 7px #2ecc71,  
-                    0px 0px 9px 7px #c0392b,  
-                    0px 0px 9px 7px #3498db,  
-                    0px 0px 9px 7px #c0392b,  
-                    0px 0px 9px 7px #3498db, 
-                    0px 0px 9px 7px #2ecc71,        
-                    0px 0px 9px 7px #c0392b,       
-                    0px 0px 9px 7px #3498db;     
+                    0px 0px 9px 7px #2ecc71,
+                    0px 0px 9px 7px #c0392b,
+                    0px 0px 9px 7px #3498db,
+                    0px 0px 9px 7px #c0392b,
+                    0px 0px 9px 7px #3498db,
+                    0px 0px 9px 7px #2ecc71,
+                    0px 0px 9px 7px #c0392b,
+                    0px 0px 9px 7px #3498db;
     }
     25% {
         box-shadow: 0px 0px 9px 4px #c0392b,
-                    0px 0px 9px 4px #c0392b,  
+                    0px 0px 9px 4px #c0392b,
                     0px 0px 9px 4px #3498db,
                     0px 0px 9px 4px #c0392b,
                     0px 0px 9px 4px #3498db,
                     0px 0px 9px 4px #2ecc71,
-                    0px 0px 9px 4px #c0392b,    
-                    0px 0px 9px 4px #3498db,       
+                    0px 0px 9px 4px #c0392b,
+                    0px 0px 9px 4px #3498db,
                     0px 0px 9px 4px #2ecc71;
     }
     50% {
         box-shadow: 0px 0px 9px 6px #3498db,
-                    0px 0px 9px 6px #3498db,  
+                    0px 0px 9px 6px #3498db,
                     0px 0px 9px 6px #c0392b,
                     0px 0px 9px 6px #3498db,
                     0px 0px 9px 6px #2ecc71,
                     0px 0px 9px 6px #c0392b,
-                    0px 0px 9px 6px #3498db,    
-                    0px 0px 9px 6px #2ecc71,       
+                    0px 0px 9px 6px #3498db,
+                    0px 0px 9px 6px #2ecc71,
                     0px 0px 9px 6px #c0392b;
     }
     100% {
         box-shadow: 0px 0px 9px 9px #c0392b,
-                    0px 0px 9px 9px #c0392b,  
+                    0px 0px 9px 9px #c0392b,
                     0px 0px 9px 9px #3498db,
                     0px 0px 9px 9px #2ecc71,
                     0px 0px 9px 9px #c0392b,
                     0px 0px 9px 9px #3498db,
-                    0px 0px 9px 9px #2ecc71,    
-                    0px 0px 9px 9px #c0392b,       
+                    0px 0px 9px 9px #2ecc71,
+                    0px 0px 9px 9px #c0392b,
                     0px 0px 9px 9px #3498db;
     }
 }
@@ -396,12 +396,12 @@ overflow: hidden;
     font-size: 1.5em;
     color: #2ecc71;
     text-align: bottom;
-    
+
 }
 
 
 @media screen and (max-width: 768px){
-    
+
     .content_article {
         width: 90%;
         padding-top: 300px;
@@ -457,7 +457,7 @@ overflow: hidden;
 
 @media screen and (max-width: 450px){
     .content_article {
-        
+
         padding-top: 250px;
         position: relative;
         display: flex;
