@@ -1,5 +1,5 @@
-class Todo {
-    constructor(nom, contenu, dateCrea, date, fini, archive) {
+class Todo{
+    constructor(nom, contenu, dateCrea, date, fini, archive){
         this.nom = nom;
         this.contenu = contenu;
         this.dateCrea = dateCrea;
@@ -7,95 +7,125 @@ class Todo {
         this.fini = fini;
         this.archive = archive;
     }
-    getNom() {
+    getNom(){
         return this.nom;
     }
-    getContenu() {
+    getContenu(){
         return this.contenu;
     }
-    getDateCrea() {
+    getDateCrea(){
         return this.dateCrea;
     }
-    getDate() {
+    getDate(){
         return this.date;
     }
-    getFini() {
+    getFini(){
         return this.fini;
     }
-    getArchive() {
+    getArchive(){
         return this.archive;
     }
-    setNom(parametre) {
+    setNom(parametre){
         this.nom = parametre;
     }
-    setContenu(parametre) {
+    setContenu(parametre){
         this.contenu = parametre;
     }
-    setDateCrea(parametre) {
+    setDateCrea(parametre){
         this.dateCrea = parametre;
     }
-    setDate(parametre) {
+    setDate(parametre){
         this.date = parametre;
     }
-    setFini(parametre) {
+    setFini(parametre){
         this.fini = parametre;
     }
-    setArchive(parametre) {
+    setArchive(parametre){
         this.archive = parametre;
     }
 }
 
 let list = [
-    new Todo('chercher du pain', 'Au super boulanger du coin', new Date(), '2019-08-21', false, false),
-    new Todo('Faire des courses', 'A Hyper U', new Date(), '2019-10-21', false, false),
+    new Todo('chercher du pain','Au super boulanger du coin',new Date(), '2019-08-21', false, false),
+    new Todo('Faire des courses','A Hyper U',new Date(), '2019-10-21', false, false),
 ];
+let listArchive = [];
 
-let archive = [];
 let cible = document.getElementById('cible');
 
-function affichage() {
+function affichage(archive = false){
+    archive ? tableau = listArchive : tableau = list
     cible.innerHTML = ''; //je vide ma div cible
-    for (i = 0; i < list.length; i++) {
-        cible.innerHTML += '<div class="row my-3"><div class="col-1"><button class="btn btn-danger btn-sm" onclick="supprime(' + i + ')">X</button></div><div class="col-4">' + list[i].nom + '</div><div class="col-3">' + list[i].date + '</div><div class="col-2"><input type="checkbox" value="' + list[i].fini + '"></div><div class="col-2"><input type="checkbox" class="archive" onclick="checkArchive()" value="' + list[i].archive + '"></div></div>';
+    let message ='';
+    for(i = 0; i < tableau.length ; i++){
+        message += '<div class="row my-3">';
+        message += '<div class="col-1"><button class="btn btn-danger btn-sm" onclick="supprime('+i+')">X</button></div>';
+        message += '<div class="col-4">'+tableau[i].nom+'</div>';
+        message += '<div class="col-3">'+tableau[i].date+'</div>';
+        message += '<div class="col-2"><input type="checkbox" value="'+tableau[i].fini+'"></div>';
+        if(archive == true ){
+            message += '<div class="col-2"><button class="btn btn-success" onclick="desarchive('+i+')">Liberez</button></div>';
+        }
+        else
+        {
+            message += '<div class="col-2"><button class="btn btn-success" onclick="archive('+i+')">Archive</button></div>';
+        }
+        message += '</div>'
     }
+    cible.innerHTML = message;
 }
 
-function add() {
+function add(){
     let nom = document.getElementById('nom');
     let date = document.getElementById('date');
-    list.push(new Todo(nom.value, '', new Date(), date.value, false, false));
+    list.push(new Todo(nom.value,'',new Date(),date.value,false,false));
     nom.value = '';
     date.value = '';
     affichage();
 }
 
+function archive(i){
+    list[i].setArchive = true;
+    listArchive.push(list[i]);
+    list.splice(i,1);
+    affichage();
+    console.log(listArchive)
+    console.log(list)
+}
+function desarchive(i){
+    listArchive[i].setArchive = false;
+    list.push(listArchive[i]);
+    listArchive.splice(i,1);
+    affichage(true);
+    console.log(list);
+    console.log(listArchive)
+}
 
-function supprime(i) {
-    list.splice(i, 1);
+function supprime(i){
+    list.splice(i,1);
     affichage();
 }
-document.getElementById('envoi').addEventListener('click', add, false);
 
-// // on s'occupe du checkbox archive
-
-
+let btnToggleArchiveRetour = document.querySelector('#btnArchive');
+let textAide = document.querySelector('#text_aide');
 
 
-
-function checkArchive() {
-    let checkbox = document.querySelector('.archive');
-    console.log(checkbox);
-    console.log(checkbox.value);
-    if (checkbox.checked) {
-        checkbox.value = true;
-        console.log(checkbox.value);
-        console.log(checkbox.parentNode.parentNode.textContent)
-    } else if (!checkbox.checked) {
-        checkbox.value = false;
-        console.log(checkbox.value)
+btnToggleArchiveRetour.addEventListener("click",function(){
+    console.log(btnToggleArchiveRetour.textContent)
+    if (btnToggleArchiveRetour.innerHTML == "Archive"){
+        btnToggleArchiveRetour.innerHTML = "Retour";
+        textAide.innerHTML = "Elements Archivés";
+        affichage(true);
+        console.log(1);
+    }else{
+        btnToggleArchiveRetour.innerHTML = "Archive"
+        console.log(2)
+        textAide.innerHTML = "Elements de la Todo";
+        affichage(false);
     }
+    
+})
 
-}
-
+document.getElementById('envoi').addEventListener('click',add,false);
 
 affichage();
