@@ -9,39 +9,120 @@ body{
     letter-spacing: 3px;
     font-size: 14px;
     line-height: 1.42857;
-    color:white;
+    color:black;
     margin: 0;
     padding: 0;
-    background-image: radial-gradient(circle, #051937, #002139, #002836, #002d32, #15322e);
+    background-image: radial-gradient(circle, #6f9796, #648e8e, #588586, #4d7d7e, #417476);
 }
 body{
     height: 100vh;
 }
 header{
     background-color: rgba(68,68,68,.5);
-    height: 20%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    
 }
+#profil{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
 
-.contenu_product{
-    background-color: #fff;
-    height: 250px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px 0px rgba(255,255,15,1);
 }
-.img{
-    height: 50px;
-    width: auto;
+#panier{
+    width: 20%;
+    display: flex;
+    justify-content: center;
 }
 
 .view_product{
-    height: 70%;
-    margin-right: 30%;
-    margin-left: 30%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 35px;
-    grid-auto-rows: minmax(100px, auto);
+    height: 80%;
+    margin: 10%;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.view_card{
+    height: 80%;
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contenu_product{
+    background-color: #fff;
+    height: 400px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(255,255,15,1);
+    padding: 2%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contenu_card{
+    background-color: #fff;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(255,255,15,1);
+    padding: 2%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.img{
+    height: 50%;
+    width: auto;
+    border-radius: 15px;
+}
+.contenu_describe{
+
+}
+
+.contenu_describe h2{
+    text-transform: uppercase;
+}
+
+.contenu_describe p{
+    
+}
+
+
+
+.contenu_price{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.text_price{
+    color: goldenrod;
+    
+}
+.contenu_price button{
+    background-color: #002836;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+
+    padding: 10px;
+
+    color: whitesmoke;
+}
+
 
 footer{
     height: 10%;
