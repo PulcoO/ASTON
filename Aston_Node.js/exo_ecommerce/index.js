@@ -55,7 +55,7 @@ function affichageProduct(){
             //prix et panier
             affichage += '<div class="contenu_price"><div class="text_price">' + produits[i].price + "€" + '</div><div class="btns"><button onclick="addCart('+i+')">Ajout</button></div></div>';
 
-        affichage += '</article>';  
+        affichage += '</article>';
     }
     sectionView.innerHTML = affichage;
 }
@@ -93,10 +93,10 @@ function affichageCart (){
             console.log(cart[i].id);
             let index = produits.findIndex(produit => produit.id == cart[i].id);
             let total = produits[index].price*cart[i].qte;
-            
+
             affichage += '<article class="contenu_card">';
             //let total = produits[index].prix * cart[i].qte
-    
+
                     //h1 + p
                     affichage += '<div class="cart_text"><h2>'+ produits[index].name +'</h2><p>' + produits[index].description +'</p></div>';
 
@@ -107,18 +107,18 @@ function affichageCart (){
                     affichage += '<div>';
                     affichage += '<input type="number" id="input_qte" oninput = changeQte('+ i +',this.value,'+produits[index].price+') value="'+cart[i].qte+'"></div>';
                     affichage +='</div>';
-                        
+
                     //prix
                     affichage += '<div class="cart_prix"><div class="text_price">' + produits[index].price + "€" + '</div>'
 
                     //Total
                     affichage += '<div id="total'+ i +'">'+ total +'</div>'
-    
-            affichage += '</article>';    
+
+            affichage += '</article>';
     }
     document.getElementById('view_product').setAttribute("class","view_card");
     affichage += '<div>'+ sommeTotal +'</div>';
-    sectionView.innerHTML = affichage; 
+    sectionView.innerHTML = affichage;
 }
 function changeQte(i,quantite, prix){
     cart[i].setQte(quantite);
@@ -126,14 +126,7 @@ function changeQte(i,quantite, prix){
 }
 
 function sommeTotal()
-    
+
 
 
 document.getElementById("btnPanier").addEventListener("click",affichageCart);
-
-
-    
-    
-    
-
-

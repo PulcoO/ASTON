@@ -1,0 +1,11 @@
+{
+  "name": "tapas",
+  "version": "1.0.0",
+  "description": "tapas ou pas tapas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PulcoOx",
+  "license": "ISC"
+}
